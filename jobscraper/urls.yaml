@@ -1,0 +1,301 @@
+# ============================================================
+# Job Scraper — URL Config
+# ============================================================
+# HOW TO USE:
+#   - type: greenhouse  → uses Greenhouse public JSON API (most reliable)
+#   - type: lever       → uses Lever public JSON API
+#   - type: linkedin    → uses Playwright scraper
+#   - type: generic     → uses CSS selectors (add 'selectors' block)
+#
+# For Greenhouse: URL format is always https://boards.greenhouse.io/{token}
+# The token is the company slug after the last slash.
+# ============================================================
+
+profiles:
+
+  # ──────────────────────────────────────────
+  # AI INFRASTRUCTURE & DEVELOPER TOOLS
+  # ──────────────────────────────────────────
+
+  - name: "Perplexity AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/perplexityai"
+    tags: [ai, search, fast-growing]
+
+  - name: "Together AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/togetherai"
+    tags: [ai, inference, llm-infra]
+
+  - name: "Fireworks AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/fireworksai"
+    tags: [ai, inference, llm-infra]
+
+  - name: "Scale AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/scaleai"
+    tags: [ai, data, labeling]
+
+  - name: "Snorkel AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/snorkelai"
+    tags: [ai, data, mlops]
+
+  - name: "Arize AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/arizeai"
+    tags: [ai, observability, mlops]
+
+  - name: "Cohere"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/cohere"
+    tags: [ai, llm, enterprise]
+
+  # ──────────────────────────────────────────
+  # ENTERPRISE AI / WORK AI
+  # ──────────────────────────────────────────
+
+  - name: "Glean"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/gleanwork"
+    tags: [ai, enterprise-search, fast-growing]
+
+  - name: "Writer"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/writer"
+    tags: [ai, enterprise, content]
+
+  - name: "Abnormal Security"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/abnormalsecurity"
+    tags: [ai, security, cybersecurity]
+
+  - name: "Moveworks"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/moveworks"
+    tags: [ai, enterprise, it-automation]
+
+  - name: "Leapsome"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/leapsome"
+    tags: [ai, hr-tech, saas]
+
+  # ──────────────────────────────────────────
+  # VERTICAL AI (LEGAL, HEALTHCARE, FINANCE)
+  # ──────────────────────────────────────────
+
+  - name: "Harvey AI (Legal)"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/harveyai"
+    tags: [ai, legal, vertical]
+
+  - name: "Cohere Health"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/coherehealth"
+    tags: [ai, healthcare, vertical]
+
+  - name: "Abridge"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/abridge"
+    tags: [ai, healthcare, clinical]
+
+  - name: "Medallion"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/medallion"
+    tags: [healthcare, saas, series-b]
+
+  # ──────────────────────────────────────────
+  # AI AGENTS & AUTOMATION
+  # ──────────────────────────────────────────
+
+  - name: "Decagon"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/decagon"
+    tags: [ai, agents, customer-support]
+
+  - name: "Sierra AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/sierraai"
+    tags: [ai, agents, enterprise]
+
+  - name: "Forethought AI"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/forethought"
+    tags: [ai, customer-support, saas]
+
+  - name: "Aisera"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/aisera"
+    tags: [ai, enterprise, automation]
+
+  # ──────────────────────────────────────────
+  # DATA & ANALYTICS AI
+  # ──────────────────────────────────────────
+
+  - name: "Hex Technologies"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/hex"
+    tags: [data, analytics, ai, series-c]
+
+  - name: "Preset (Apache Superset)"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/preset"
+    tags: [data, analytics, open-source]
+
+  - name: "Monte Carlo Data"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/montecarlodatainc4"
+    tags: [data, observability, series-d]
+
+  - name: "Samsara"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/samsara"
+    tags: [iot, ai, data, public]
+
+  # ──────────────────────────────────────────
+  # DEVTOOLS & CLOUD INFRASTRUCTURE
+  # ──────────────────────────────────────────
+
+  - name: "Modal Labs"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/modal"
+    tags: [ai, serverless, gpu, devtools]
+
+  - name: "Temporal Technologies"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/temporal"
+    tags: [devtools, distributed-systems, series-b]
+
+  - name: "Mend (WhiteSource)"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/mend"
+    tags: [devtools, security, series-d]
+
+  - name: "Dagger"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/dagger"
+    tags: [devtools, ci-cd, open-source]
+
+  - name: "Airplane (Airtable acquired)"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/airplanedev"
+    tags: [devtools, internal-tools]
+
+  - name: "Retool"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/retool"
+    tags: [devtools, internal-tools, series-c]
+
+  # ──────────────────────────────────────────
+  # GROWTH-STAGE / MID-TIER SAAS
+  # ──────────────────────────────────────────
+
+  - name: "Stripe"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/stripe"
+    tags: [fintech, payments, pre-ipo]
+
+  - name: "Brex"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/brex"
+    tags: [fintech, series-d, fast-growing]
+
+  - name: "Ramp"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/ramp"
+    tags: [fintech, series-d, fast-growing]
+
+  - name: "Rippling"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/rippling"
+    tags: [hr-tech, fintech, series-e]
+
+  - name: "Deel"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/deel"
+    tags: [hr-tech, global-payroll, series-d]
+
+  - name: "Lattice"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/lattice"
+    tags: [hr-tech, people-ops, series-f]
+
+  - name: "Intercom"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/intercom"
+    tags: [saas, customer-support, series-d]
+
+  - name: "Notion"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/notion"
+    tags: [saas, productivity, series-c]
+
+  - name: "Linear"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/linear"
+    tags: [devtools, project-management, series-b]
+
+  - name: "Vercel"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/vercel"
+    tags: [devtools, cloud, series-d]
+
+  - name: "Planetscale"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/planetscale"
+    tags: [database, devtools, series-c]
+
+  - name: "Replit"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/replit"
+    tags: [devtools, ai, coding, series-b]
+
+  - name: "Coda"
+    type: greenhouse
+    url: "https://boards.greenhouse.io/coda"
+    tags: [productivity, saas, series-c]
+
+  # ──────────────────────────────────────────
+  # LINKEDIN SEARCHES (role-specific)
+  # ──────────────────────────────────────────
+
+  - name: "LinkedIn — Backend Engineer Remote"
+    type: linkedin
+    url: "https://www.linkedin.com/jobs/search/?keywords=backend+engineer&f_WT=2&f_TPR=r604800"
+    tags: [linkedin]
+
+  - name: "LinkedIn — AI Engineer"
+    type: linkedin
+    url: "https://www.linkedin.com/jobs/search/?keywords=ai+engineer+python&f_WT=2&f_TPR=r604800"
+    tags: [linkedin, ai]
+
+  - name: "LinkedIn — Staff Engineer Startup"
+    type: linkedin
+    url: "https://www.linkedin.com/jobs/search/?keywords=staff+software+engineer+startup&f_WT=2&f_E=4&f_TPR=r604800"
+    tags: [linkedin, senior]
+
+  # ──────────────────────────────────────────
+  # GENERIC CAREERS PAGES
+  # (add selectors if the defaults don't pick up jobs)
+  # ──────────────────────────────────────────
+
+  - name: "Mistral AI Careers"
+    type: generic
+    url: "https://mistral.ai/careers"
+    tags: [ai, llm, european]
+
+  - name: "ElevenLabs Careers"
+    type: generic
+    url: "https://elevenlabs.io/careers"
+    tags: [ai, voice, fast-growing]
+
+  - name: "Anyscale Careers"
+    type: generic
+    url: "https://www.anyscale.com/careers"
+    tags: [ai, ray, infra]
+
+  - name: "Runway ML Careers"
+    type: generic
+    url: "https://runwayml.com/careers"
+    tags: [ai, video, generative]

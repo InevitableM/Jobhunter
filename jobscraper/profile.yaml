@@ -1,0 +1,60 @@
+role: "Software Engineering Intern"
+experience_years: 1
+max_experience_years: 1
+max_hours_since_posted: 24
+allowed_locations:
+  - india
+  - remote
+skills:
+  - Python
+  - JavaScript
+  - AI Engineering
+  - Data Structures
+  - Algorithms
+keywords:
+  - intern
+  - internship
+  - software engineer
+  - AI Engineer
+  - software engineering
+  - swe
+  - sde
+content_must_include_any_of:
+  - intern
+  - internship
+  - fresher
+  - junior
+  - sde
+  - swe
+  - software engineer
+  - software engineering
+  - ai engineer
+  - developer
+content_must_not_include:
+  - sales
+  - accounting
+  - accountant
+  - finance
+  - marketing
+  - recruiter
+  - recruiting
+  - hr
+  - legal
+  - counsel
+  - controller
+  - bookkeep
+  - payroll
+  - auditor
+  - treasury
+not_interested_in:
+  - finance
+  - banking
+  - gambling
+preferences:
+  remote: true
+  company_stage: "Series A to C"
+summary: >
+  Computer science student seeking a software engineering internship.
+  Comfortable with Python, Java, JavaScript, and core data structures and
+  algorithms. Looking for remote or hybrid internship roles. Not interested
+  in non-engineering roles like sales, finance, or accounting.
