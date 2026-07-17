@@ -37,7 +37,9 @@ def content_filter(job: JobPosting) -> bool:
         return False
 
     must_include_any = profile.get("content_must_include_any_of", [])
-    if must_include_any and not any(_contains_word(text, kw) for kw in must_include_any):
+    if must_include_any and not any(
+        _contains_word(text, kw) for kw in must_include_any
+    ):
         return False
 
     must_not_include = profile.get("content_must_not_include", [])
@@ -124,6 +126,7 @@ def llm_match(job: JobPosting) -> tuple[float, str]:
     """LLM-powered match score. Returns (score, reason)."""
     try:
         from google import genai
+
         client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
         prompt = f"""Rate how well this job matches my profile. Reply with valid JSON only, no markdown.

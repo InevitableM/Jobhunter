@@ -1,12 +1,27 @@
 import os
 import yaml
 from adapters import ADAPTERS
-from matcher import content_filter, experience_filter, recency_filter, location_filter, keyword_match, llm_match
+from matcher import (
+    content_filter,
+    experience_filter,
+    recency_filter,
+    location_filter,
+    keyword_match,
+    llm_match,
+)
 from collections import defaultdict
-from storage import init_db, init_csv, is_new, save_match, append_link, init_links_by_platform, write_platform_section
+from storage import (
+    init_db,
+    init_csv,
+    is_new,
+    save_match,
+    append_link,
+    init_links_by_platform,
+    write_platform_section,
+)
 
-KEYWORD_THRESHOLD = 0.15   # minimum keyword hit-rate to proceed to LLM
-LLM_THRESHOLD = 0.65      # minimum LLM score to save as a match
+KEYWORD_THRESHOLD = 0.15  # minimum keyword hit-rate to proceed to LLM
+LLM_THRESHOLD = 0.65  # minimum LLM score to save as a match
 
 
 def run_pipeline():

@@ -34,13 +34,15 @@ class GenericAdapter(BaseAdapter):
 
             if title and len(title) > 3:
                 job_url = href or config["url"]
-                jobs.append(JobPosting(
-                    title=title,
-                    company=config.get("name", ""),
-                    url=job_url,
-                    description=self._fetch_full_page(job_url),
-                    source="generic",
-                ))
+                jobs.append(
+                    JobPosting(
+                        title=title,
+                        company=config.get("name", ""),
+                        url=job_url,
+                        description=self._fetch_full_page(job_url),
+                        source="generic",
+                    )
+                )
 
         print(f"[Generic] {len(jobs)} jobs from {config['name']}")
         return jobs
