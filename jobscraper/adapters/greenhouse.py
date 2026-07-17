@@ -13,7 +13,9 @@ class GreenhouseAdapter(BaseAdapter):
             return []
 
         token = match.group(1).strip("/")
-        api_url = f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true"
+        api_url = (
+            f"https://boards-api.greenhouse.io/v1/boards/{token}/jobs?content=true"
+        )
 
         try:
             resp = requests.get(api_url, timeout=15)
@@ -33,14 +35,16 @@ class GreenhouseAdapter(BaseAdapter):
                 except ValueError:
                     date_posted = None
 
-            jobs.append(JobPosting(
-                title=j.get("title", ""),
-                company=config.get("name", token),
-                url=j.get("absolute_url", ""),
-                location=j.get("location", {}).get("name", ""),
-                description=j.get("content", ""),
-                date_posted=date_posted,
-                source="greenhouse",
-            ))
+            jobs.append(
+                JobPosting(
+                    title=j.get("title", ""),
+                    company=config.get("name", token),
+                    url=j.get("absolute_url", ""),
+                    location=j.get("location", {}).get("name", ""),
+                    description=j.get("content", ""),
+                    date_posted=date_posted,
+                    source="greenhouse",
+                )
+            )
         print(f"[Greenhouse] {len(jobs)} jobs from {token}")
         return jobs

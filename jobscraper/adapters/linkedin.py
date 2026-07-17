@@ -9,7 +9,9 @@ class LinkedInAdapter(BaseAdapter):
         try:
             from playwright.sync_api import sync_playwright
         except ImportError:
-            print("[LinkedIn] playwright not installed. Run: pip install playwright && playwright install chromium")
+            print(
+                "[LinkedIn] playwright not installed. Run: pip install playwright && playwright install chromium"
+            )
             return []
 
         jobs = []
@@ -25,27 +27,45 @@ class LinkedInAdapter(BaseAdapter):
                 time.sleep(random.uniform(2, 4))
 
                 # Try to find job cards
-                page.wait_for_selector(".job-card-container, .jobs-search__results-list li", timeout=10000)
-                cards = page.query_selector_all(".job-card-container, .jobs-search__results-list li")
+                page.wait_for_selector(
+                    ".job-card-container, .jobs-search__results-list li", timeout=10000
+                )
+                cards = page.query_selector_all(
+                    ".job-card-container, .jobs-search__results-list li"
+                )
 
                 for card in cards[:25]:  # cap at 25 per run
                     try:
                         title_el = card.query_selector(".job-card-list__title, h3, h2")
                         link_el = card.query_selector("a[href*='/jobs/']")
-                        company_el = card.query_selector(".job-card-container__company-name, .artdeco-entity-lockup__subtitle")
-                        location_el = card.query_selector(".job-search-card__location, .job-card-container__metadata-item")
-                        date_el = card.query_selector(".job-search-card__listdate, time")
+                        company_el = card.query_selector(
+                            ".job-card-container__company-name, .artdeco-entity-lockup__subtitle"
+                        )
+                        location_el = card.query_selector(
+                            ".job-search-card__location, .job-card-container__metadata-item"
+                        )
+                        date_el = card.query_selector(
+                            ".job-search-card__listdate, time"
+                        )
 
                         title = title_el.inner_text().strip() if title_el else ""
-                        company = company_el.inner_text().strip() if company_el else "Unknown"
-                        location = location_el.inner_text().strip() if location_el else ""
+                        company = (
+                            company_el.inner_text().strip() if company_el else "Unknown"
+                        )
+                        location = (
+                            location_el.inner_text().strip() if location_el else ""
+                        )
                         href = link_el.get_attribute("href") if link_el else ""
                         if href and not href.startswith("http"):
                             href = "https://www.linkedin.com" + href
-                        href = href.split("?")[0] if href else ""  # strip tracking params
+                        href = (
+                            href.split("?")[0] if href else ""
+                        )  # strip tracking params
 
                         date_posted = None
-                        date_str = date_el.get_attribute("datetime") if date_el else None
+                        date_str = (
+                            date_el.get_attribute("datetime") if date_el else None
+                        )
                         if date_str:
                             try:
                                 date_posted = datetime.fromisoformat(date_str)
@@ -53,15 +73,17 @@ class LinkedInAdapter(BaseAdapter):
                                 date_posted = None
 
                         if title and href:
-                            jobs.append(JobPosting(
-                                title=title,
-                                company=company,
-                                url=href,
-                                location=location,
-                                description=self._fetch_full_page(context, href),
-                                date_posted=date_posted,
-                                source="linkedin",
-                            ))
+                            jobs.append(
+                                JobPosting(
+                                    title=title,
+                                    company=company,
+                                    url=href,
+                                    location=location,
+                                    description=self._fetch_full_page(context, href),
+                                    date_posted=date_posted,
+                                    source="linkedin",
+                                )
+                            )
                     except Exception:
                         continue
 
