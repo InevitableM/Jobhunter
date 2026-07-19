@@ -13,7 +13,7 @@ class GenericAdapter(BaseAdapter):
             resp.raise_for_status()
         except Exception as e:
             print(f"[Generic] Failed to fetch {config['url']}: {e}")
-            return []
+            return []   
 
         soup = BeautifulSoup(resp.text, "html.parser")
         sel = config.get("selectors", {})
